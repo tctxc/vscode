@@ -1,0 +1,8 @@
+from import_admin_9_11 import Admin
+
+user01 = Admin(' Li', 'Asuka', 19, 'shemale')
+user01.privileges.privileges = ['can wear make up', 'can wear highheels', 'can dress up']
+user01.privileges.show_privileges()
+
+user01.greet_user()
+user01.describe_user()

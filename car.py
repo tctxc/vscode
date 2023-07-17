@@ -39,9 +39,38 @@ class Car():
         '''将里程表读数增加指定的量'''
         self.odometer_reading += miles
 
+class Battery():
+    def __init__(self,battery_size=60) -> None:
+        self.battery_size = battery_size
+    
+    def describe_battery(self):
+        '''打印一条描述电池容量的信息'''
+        print('\nThis car has a ' + str(self.battery_size) + '-kWh battery.')
+
+    def get_range(self):
+        if self.battery_size == 70:
+            range = 240
+        else:
+            self.battery_size == 85
+            range = 270
+
+        message = "This car can go approximately " + str(range) + 'miles on a full charge.'
+        print(message)
+
+#    def upgrade_battery(self):
+#        if self.battery_size != 85:
+#            self.battery_size = 85
+#        else:
+#            self.battery_size =85
 
 
-my_new_car = Car('audi','a4','2016') # 实例化一个车
-print(my_new_car.get_descriptive_name())
-my_new_car.update_odometer(23)
-my_new_car.read_odometer()
+class ElectricCar(Car):
+    '''电动汽车的独特之处'''
+    def __init__(self, make, model, year):
+        '''
+        初始化父类的属性
+        同时初始化电动车子类自己的特有属性
+        使子类具有自己的独特之处
+        '''
+        super().__init__(make, model, year)
+        self.battery = Battery()
